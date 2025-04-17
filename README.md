@@ -13,6 +13,13 @@ It allows molecular energy minimization both in isolation and conditioned on a p
 
 ---
 
+## 💻 Software Requirements
+
+- Python >= 3.10
+- Libraries listed in `requirements.txt` (`numpy`, `pytest`, `rdkit`, `torch`)
+
+---
+
 ## 🚀 Installation
 
 Clone the repository and install the dependencies:
