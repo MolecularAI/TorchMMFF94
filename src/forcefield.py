@@ -291,7 +291,7 @@ class TorchMMFF94:
         R_star_ij7 = R_star_ij2 * R_star_ij2 * R_star_ij2 * r_dist
         bTerm = vdw2 * R_star_ij7 / (dist7 + vdw2m1 * R_star_ij7 + 1e-8) - 2.0
         res = eps * aTerm7 * bTerm
-        i, j = torch.triu_indices(res.size(0), res.size(1), offset=1, device=res.device)
+        i, j = torch.triu_indices(res.size(0), res.size(1), offset=1) #, device=res.device)
         return res[i, j].sum()
 
     # Non-bound interaction
@@ -302,7 +302,7 @@ class TorchMMFF94:
         # if (dielModel == RDKit::MMFF::DISTANCE)
         #     corr_dist *= corr_dist
         res = diel * Q / corr_dist * den
-        i, j = torch.triu_indices(res.size(0), res.size(1), offset=1, device=res.device)
+        i, j = torch.triu_indices(res.size(0), res.size(1), offset=1) #, device=res.device)
         return res[i, j].sum()
 
     def e_bond(self, dist):
